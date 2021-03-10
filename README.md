@@ -15,16 +15,16 @@ $ git clone https://github.com/hphuongdhsp/dicom2png
 Create a new envirement
 
 ```
-$ conda create --name spine python=3.7
+$ conda create --name spine python=3.7 -y
 ```
 
 Install the requirements
 
 ```
-$ conda create --name spine python=3.7
 $ conda activate spine
+$ cd dicom2png
 $ pip install -r requirements.txt
-$ conda install -c conda-forge gdcm
+$ conda install -c conda-forge gdcm -y
 ```
 
 ## Converting DICOM file to PNG 
