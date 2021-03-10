@@ -1,71 +1,24 @@
-A simple app to convert dicom file to image (png).
+A simple code to convert dicom file to image (png).
 
-## App python 
 
-All of python code is in the **convert-app-mac.py** file. Here, we use **tkinter** to build the python app. 
 
-## Quick tkinter turotial
+Ubuntu/MacOS
 
-### Make window
+## Installation
 
-```python
-gui = Tk()
-gui.geometry("400x400")
-gui.title("DCM2PNG")
+Open terminal then, 
 
 ```
-
-### Make useful class to go and get path 
-
-```
-class FolderSelect(Frame):
-    def __init__(self,parent=None,folderDescription="",**kw):
-        Frame.__init__(self,master=parent,**kw)
-        self.folderPath = StringVar()
-        self.lblName = Label(self, text=folderDescription)
-        self.lblName.grid(row=0,column=0)
-        self.entPath = Entry(self, textvariable=self.folderPath)
-        self.entPath.grid(row=0,column=1)
-        self.btnFind = ttk.Button(self, text="Click",command=self.setFolderPath)
-        self.btnFind.grid(row=0,column=2)
-    def setFolderPath(self):
-        folder_selected = filedialog.askdirectory()
-        self.folderPath.set(folder_selected)
-    @property
-    def folder_path(self):
-        return self.folderPath.get()
+$ git clone https://github.com/hphuongdhsp/dicom2png
 ```
 
-### Make app 
+Create a new envirement
 
 ```
-c = ttk.Button(gui, text="Convert", command = dcm2img)
-c.grid(row=4,column=0)
-gui.mainloop()
+$ conda create --name spine python=3.7
 ```
 
-here **dcm2img** is the function to convert dicom file to png file and write error log file. 
-
-
-## Run app in python 
-
-```
-$ python convert-app-mac.py
-```
-
-We then have the convert app 
-
-![app](./imgs/app.png)
-
-We need chose the input directory and output directory, then **convert**
-## Make .exe app 
-
-To use .exe app, we need to install the package **pyinstaller**. All of dependencies is detailedin the **requirements.txt** file
-
-
-##  Dependencies
-
-It is important to install gdcm by conda. 
+Install the requirements
 
 ```
 $ conda create --name spine python=3.7
@@ -74,15 +27,26 @@ $ pip install -r requirements.txt
 $ conda install -c conda-forge gdcm
 ```
 
+## Converting DICOM file to PNG 
 
-To make Mac/Ubuntu app 
+To convert dicom folder (for example  "/Users/name_user/Desktop/input-folder") , to another folder (for example  "/Users/name_user/Desktop/output-folder") we use: 
+
+
 ```
-$ cd dicom2png-app
-$ sudo pyinstaller convert-app-mac.py -n Converter --windowed --noconfirm --clean
+$ python test_app.py -i /Users/name_user/Desktop/input-folder -o /Users/name_user/Desktop/output-folder -d True
+
 ```
 
-To make Windows app 
+All Dicom files will be converted to images and be stored in the "/Users/name_user/Desktop/output-folder".  All of the error files are stored in the CSV file "error_list.csv"
+
+
+If you don't care about the error file, then we can use:
+
+
 ```
-$ cd dicom2png-app 
-$ pyinstaller --onefile --name Converter convert-app-win.py
+$ python test_app.py -i /Users/name_user/Desktop/input-folder -o /Users/name_user/Desktop/output-folder -d True
+
 ```
+
+
+
