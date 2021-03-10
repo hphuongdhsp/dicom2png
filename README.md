@@ -44,7 +44,7 @@ If you don't care about the error file, then we can use:
 
 
 ```
-$ python test_app.py -i /Users/name_user/Desktop/input-folder -o /Users/name_user/Desktop/output-folder -d True
+$ python test_app.py -i /Users/name_user/Desktop/input-folder -o /Users/name_user/Desktop/output-folder -d False
 
 ```
 
