@@ -33,18 +33,7 @@ To convert dicom folder (for example  "/Users/name_user/Desktop/input-folder") ,
 
 
 ```
-$ python test_app.py -i /Users/name_user/Desktop/input-folder -o /Users/name_user/Desktop/output-folder -d True
-
-```
-
-All Dicom files will be converted to images and be stored in the "/Users/name_user/Desktop/output-folder".  All of the error files are stored in the CSV file "error_list.csv"
-
-
-If you don't care about the error file, then we can use:
-
-
-```
-$ python test_app.py -i /Users/name_user/Desktop/input-folder -o /Users/name_user/Desktop/output-folder -d False
+$ python test_app.py -i /Users/name_user/Desktop/input-folder -o /Users/name_user/Desktop/output-folder
 
 ```
 
